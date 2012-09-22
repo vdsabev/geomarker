@@ -1,12 +1,13 @@
 @lightGray: #eee;
-@mediumGray: #ddd;
-@darkGray: #ccc;
+@mediumGray: #ccc;
+@darkGray: #999;
 @blackGray: #333;
 
-.user-select (@value: none)
+.user-select (@value)
 {
   -khtml-user-select: @value;
   -moz-user-select: @value;
+  -ms-user-select: @value;
   -o-user-select: @value;
   -webkit-user-select: @value;
   user-select: @value;
@@ -18,10 +19,6 @@
   -webkit-box-sizing: @value; 
   box-sizing: @value;
 }
-.border-box
-{
-  .box-sizing;
-}
 
 .left { float: left; }
 .right { float: right; }
@@ -32,13 +29,24 @@ body
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333;
-  background: #eee;
+  background: @lightGray;
+  color: @blackGray;
 }
 
 body, input
 {
   margin: 0;
+}
+
+input, textarea, .map
+{
+  .box-sizing;
+}
+
+textarea
+{
+  width: 100%;
+  resize: vertical;
 }
 
 a
@@ -53,6 +61,7 @@ img
 
 .logo
 {
+  .user-select(none);
   padding-top: 1.2em;
   padding-bottom: 0.2em;
   .logo-image, .logo-text
@@ -66,7 +75,7 @@ img
   }
   .logo-text
   {
-    color: #333;
+    color: @blackGray;
     text-transform: uppercase;
     font-size: 1.7em;
     font-weight: bold;
@@ -75,32 +84,26 @@ img
   }
 }
 
-textarea
-{
-  width: 100%;
-  resize: vertical;
-}
-
 .map
 {
   width: 100%;
   height: 275px;
-  border: 1px solid #999;
+  border: 1px solid @darkGray;
   margin-bottom: 5px;
 }
 
 table
 {
   width: 100%;
-  border: 1px solid #999;
+  border: 1px solid @darkGray;
   border-collapse: collapse;
   & > thead
   {
-    background: #ccc;
+    background: @mediumGray;
   }
   & > tbody, & > tfoot
   {
-    background: #fff;
+    background: white;
   }
   & > tfoot
   {
@@ -132,28 +135,29 @@ html, body
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -30px;
-}
-.push
-{
-  height: 45px;
+  
+  & > .push
+  {
+    height: 45px;
+  }
 }
 .footer
 {
 	height: 30px;
-  background: #333;
+  background: @blackGray;
   font-size: smaller;
   p
   {
     float: right;
-    color: #999;
+    color: @darkGray;
     margin: 5px 15px 0 0;
   }
   a
   {
-    color: #ccc;
+    color: @mediumGray;
     &:hover
     {
-      color: #eee;
+      color: @lightGray;
     }
   }
 }
