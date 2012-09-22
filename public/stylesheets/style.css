@@ -1,0 +1,116 @@
+.border-box {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  background: #eee;
+}
+body,
+input {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: 0;
+}
+.logo {
+  padding-top: 1.2em;
+  padding-bottom: 0.2em;
+}
+.logo .logo-image,
+.logo .logo-text {
+  vertical-align: middle;
+}
+.logo .logo-image {
+  height: 25px;
+  margin: 0 -5px;
+}
+.logo .logo-text {
+  color: #333;
+  text-transform: uppercase;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
+}
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+.map {
+  width: 100%;
+  height: 275px;
+  border: 1px solid #999;
+  margin-bottom: 5px;
+}
+table {
+  width: 100%;
+  border: 1px solid #999;
+  border-collapse: collapse;
+}
+table  > thead {
+  background: #ccc;
+}
+table  > tbody,
+table  > tfoot {
+  background: #fff;
+}
+table  > tfoot {
+  font-weight: bold;
+}
+.success {
+  color: green;
+}
+.error {
+  color: #ff0000;
+}
+/*
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+*/
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  width: 650px;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -30px;
+}
+.push {
+  height: 45px;
+}
+.footer {
+  height: 30px;
+  background: #333;
+  font-size: smaller;
+}
+.footer p {
+  float: right;
+  color: #999;
+  margin: 5px 15px 0 0;
+}
+.footer a {
+  color: #ccc;
+}
+.footer a:hover {
+  color: #eee;
+}
