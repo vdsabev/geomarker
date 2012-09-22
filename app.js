@@ -7,8 +7,13 @@ var app = express();
 app.configure(function () {
   app.set('port', process.env.PORT || 3000);
   app.use(express.favicon(__dirname + '/public/images/logo.png'));
+  app.use(express.logger('dev'));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
+});
+
+app.configure('development', function () {
+  app.use(express.errorHandler());
 });
 
 //Pages
