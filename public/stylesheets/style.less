@@ -1,8 +1,14 @@
-@lightGray: #eee;
-@mediumGray: #ccc;
-@darkGray: #999;
-@blackGray: #333;
+//- Size
+@panelWidth: 480px;
+@lineHeight: 20px;
 
+//- Colors
+@lightNeutral: #eee;
+@mediumNeutral: #ccc;
+@darkNeutral: #999;
+@blackNeutral: #333;
+
+//- Mixins
 .user-select (@value)
 {
   -khtml-user-select: @value;
@@ -15,22 +21,30 @@
 
 .box-sizing (@value: border-box)
 {
-  -moz-box-sizing: @value; 
-  -webkit-box-sizing: @value; 
+  -moz-box-sizing: @value;
+  -webkit-box-sizing: @value;
   box-sizing: @value;
 }
 
+//- Custom
 .left { float: left; }
 .right { float: right; }
 .clear { clear: both; }
+
+.success { color: green; }
+.error { color: red; }
+
+//- Basic
+html, body
+{
+  height: 100%;
+}
 
 body
 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 20px;
-  background: @lightGray;
-  color: @blackGray;
+  line-height: @lineHeight;
 }
 
 body, input
@@ -38,7 +52,7 @@ body, input
   margin: 0;
 }
 
-input, textarea, .map
+input
 {
   .box-sizing;
 }
@@ -47,6 +61,7 @@ textarea
 {
   width: 100%;
   resize: vertical;
+  padding: 0;
 }
 
 a
@@ -59,47 +74,15 @@ img
   border: 0;
 }
 
-.logo
-{
-  .user-select(none);
-  padding-top: 1.2em;
-  padding-bottom: 0.2em;
-  .logo-image, .logo-text
-  {
-    vertical-align: middle;
-  }
-  .logo-image
-  {
-    height: 25px;
-    margin: 0 -5px;
-  }
-  .logo-text
-  {
-    color: @blackGray;
-    text-transform: uppercase;
-    font-size: 1.7em;
-    font-weight: bold;
-    letter-spacing: -1px;
-    margin-bottom: 50px;
-  }
-}
-
-.map
-{
-  width: 100%;
-  height: 275px;
-  border: 1px solid @darkGray;
-  margin-bottom: 5px;
-}
-
 table
 {
+  color: @blackNeutral;
   width: 100%;
-  border: 1px solid @darkGray;
+  border: 1px solid @darkNeutral;
   border-collapse: collapse;
   & > thead
   {
-    background: @mediumGray;
+    background: @mediumNeutral;
   }
   & > tbody, & > tfoot
   {
@@ -111,53 +94,78 @@ table
   }
 }
 
-.success
+//- Main
+.panel
 {
-  color: green;
-}
-.error
-{
-  color: red
+  .box-sizing;
+  color: @lightNeutral;
+  background: @blackNeutral;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: @panelWidth;
+  padding: 4 * @lineHeight @lineHeight;
+  overflow: auto;
 }
 
-/*
-Sticky Footer by Ryan Fait
-http://ryanfait.com/
-*/
-html, body
+.logo, .footer
 {
-	height: 100%;
+  .box-sizing;
+  position: fixed;
+  width: @panelWidth - 2 * @lineHeight;
+  padding: @lineHeight 0;
+  background: @blackNeutral;
 }
-.wrapper
+
+.logo
 {
-	min-height: 100%;
-  width: 650px;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -30px;
-  
-  & > .push
+  top: 0;
+  .user-select(none);
+  .logo-image, .logo-text
   {
-    height: 45px;
+    vertical-align: middle;
+  }
+  .logo-image
+  {
+    height: 25px;
+    margin: 0 -5px;
+  }
+  .logo-text
+  {
+    color: @lightNeutral;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 50px;
   }
 }
+
 .footer
 {
-	height: 30px;
-  background: @blackGray;
+  bottom: 0;
   font-size: smaller;
   p
   {
-    float: right;
-    color: @darkGray;
+    color: @darkNeutral;
     margin: 5px 15px 0 0;
   }
   a
   {
-    color: @mediumGray;
+    color: @mediumNeutral;
     &:hover
     {
-      color: @lightGray;
+      color: @lightNeutral;
     }
   }
+}
+
+.map
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: @panelWidth;
+  right: 0;
 }

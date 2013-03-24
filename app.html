@@ -6,30 +6,26 @@
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
   </head>
-  
+
   <body>
-    <div class="wrapper">
+    <div class="panel">
       <div class="logo">
-        <a href="/" class="left">
+        <a href="/">
           <span class="logo-text">Ge</span>
           <img class="logo-image" src="images/logo.png" />
           <span class="logo-text">marker</span>
         </a>
-        
-        <div class="right">
-          <label title="Google Maps API might throw an OVER_QUERY_LIMIT error if you send requests too often">
-            Search interval:
-            <input id="intervalInput" type="number" value="750" min="0" step="10" /> ms
-          </label>
-          <input id="startSearchButton" type="button" value="Search" onclick="startSearch()" />
-          <input id="stopSearchButton" type="button" value="Cancel" onclick="stopSearch()" disabled="true" />
-        </div>
-        
-        <div class="clear"></div>
       </div>
-      
-      <div id="mapContainer" class="map"></div>
-      
+
+      <label title="Google Maps API might throw an OVER_QUERY_LIMIT error if you send requests too often">
+        Search interval:
+        <input id="intervalInput" type="number" value="750" min="0" step="10" /> ms
+      </label>
+
+      <input type="button" id="stopSearchButton" class="right" value="Cancel" onclick="stopSearch()" disabled="true" />
+      <input type="button" id="startSearchButton" class="right" value="Search" onclick="startSearch()" />
+      <div class="clear"></div>
+
       <textarea id="addressesInput" rows="7" placeholder="Enter each address on a new line">Sofia, Bulgaria
 Stara Zagora, Bulgaria
 Varna, Bulgaria
@@ -37,28 +33,25 @@ Burgas, Bulgaria
 Plovdiv, Bulgaria
 Ruse, Bulgaria
 Vidin, Bulgaria</textarea>
-      
+
       <table border="1">
         <thead><tr><th>Address</th><th>Latitude</th><th>Longitude</th></tr></thead>
         <tbody id="locationsContainer"></tbody>
         <tfoot><tr><td id="searchProgressLabel" colspan="3">Search for some addresses first</td></tr></tfoot>
       </table>
-      
-      <div class="push"></div>
-    </div>
-    
-    <div class="footer">
-      <div class="container">
-        <p class="right">&copy; 2012 Vladimir Sabev <a href="mailto://vdsabev@gmail.com" target="_blank" title="Available on:
+
+      <div class="footer">
+        <p>&copy; 2013 Vladimir Sabev <a href="//github.com/vdsabev" target="_blank" title="Available on:
+GitHub
 Google
 Facebook
-GitHub
 Twitter">@ vdsabev</a></p>
-        <div class="clear"></div>
       </div>
     </div>
-    
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <div id="map" class="map"></div>
+
+    <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="scripts/lib/jquery.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.ui.map.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.ui.map.services.js"></script>

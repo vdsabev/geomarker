@@ -7,20 +7,26 @@
 .clear {
   clear: both;
 }
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}
+html,
+body {
+  height: 100%;
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  background: #eeeeee;
-  color: #333333;
 }
 body,
 input {
   margin: 0;
 }
-input,
-textarea,
-.map {
+input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -28,6 +34,7 @@ textarea,
 textarea {
   width: 100%;
   resize: vertical;
+  padding: 0;
 }
 a {
   text-decoration: none;
@@ -35,39 +42,8 @@ a {
 img {
   border: 0;
 }
-.logo {
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  padding-top: 1.2em;
-  padding-bottom: 0.2em;
-}
-.logo .logo-image,
-.logo .logo-text {
-  vertical-align: middle;
-}
-.logo .logo-image {
-  height: 25px;
-  margin: 0 -5px;
-}
-.logo .logo-text {
-  color: #333333;
-  text-transform: uppercase;
-  font-size: 1.7em;
-  font-weight: bold;
-  letter-spacing: -1px;
-  margin-bottom: 50px;
-}
-.map {
-  width: 100%;
-  height: 275px;
-  border: 1px solid #999999;
-  margin-bottom: 5px;
-}
 table {
+  color: #333333;
   width: 100%;
   border: 1px solid #999999;
   border-collapse: collapse;
@@ -82,37 +58,60 @@ table  > tfoot {
 table  > tfoot {
   font-weight: bold;
 }
-.success {
-  color: green;
+.panel {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #eeeeee;
+  background: #333333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 480px;
+  padding: 80px 20px;
+  overflow: auto;
 }
-.error {
-  color: #ff0000;
+.logo,
+.footer {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  width: 440px;
+  padding: 20px 0;
+  background: #333333;
 }
-/*
-Sticky Footer by Ryan Fait
-http://ryanfait.com/
-*/
-html,
-body {
-  height: 100%;
+.logo {
+  top: 0;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
-.wrapper {
-  min-height: 100%;
-  width: 650px;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -30px;
+.logo .logo-image,
+.logo .logo-text {
+  vertical-align: middle;
 }
-.wrapper  > .push {
-  height: 45px;
+.logo .logo-image {
+  height: 25px;
+  margin: 0 -5px;
+}
+.logo .logo-text {
+  color: #eeeeee;
+  text-transform: uppercase;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
 }
 .footer {
-  height: 30px;
-  background: #333333;
+  bottom: 0;
   font-size: smaller;
 }
 .footer p {
-  float: right;
   color: #999999;
   margin: 5px 15px 0 0;
 }
@@ -121,4 +120,11 @@ body {
 }
 .footer a:hover {
   color: #eeeeee;
+}
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 480px;
+  right: 0;
 }

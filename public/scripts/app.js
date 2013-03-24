@@ -1,5 +1,5 @@
 $(function () {
-  $('#mapContainer').gmap({ center: '42.696695,23.321332', zoom: 12 });
+  $('#map').gmap({ center: '42.696695,23.321332', zoom: 12 });
 });
 
 var timeoutIDs;
@@ -11,9 +11,9 @@ var totalLocations;
 function startSearch() {
   $('#startSearchButton').prop('disabled', true);
   $('#stopSearchButton').prop('disabled', false);
-  $('#mapContainer').gmap('clear', 'markers');
+  $('#map').gmap('clear', 'markers');
   $('#locationsContainer').empty();
-  
+
   var interval = parseInt($('#intervalInput').val());
   var addresses = $('#addressesInput').val().split('\n');
   timeoutIDs = [];
@@ -31,16 +31,16 @@ function startSearch() {
 
 function searchLocation(location) {
   return function() {
-    $('#mapContainer').gmap('search', { address: location.address }, function (results, status) {
+    $('#map').gmap('search', { address: location.address }, function (results, status) {
       if (status == 'OK' ) {
         var l = results[0].geometry.location;
         location.latitude = l.lat();
         location.longitude = l.lng();
-        $('#mapContainer').gmap('addMarker', {
+        $('#map').gmap('addMarker', {
           position: new google.maps.LatLng(location.latitude, location.longitude),
           bounds: true
         }).click(function() {
-          $('#mapContainer').gmap('openInfoWindow', { content: '<b>' + location.address + '</b><br/>' + location.latitude + '<br/>' + location.longitude }, this);
+          $('#map').gmap('openInfoWindow', { content: '<b>' + location.address + '</b><br/>' + location.latitude + '<br/>' + location.longitude }, this);
         });                                                                                         ;
       }
       else { //Handle errors
@@ -63,7 +63,7 @@ function stopSearch() {
   $('#startSearchButton').prop('disabled', false);
   $('#stopSearchButton').prop('disabled', true);
   displaySearchProgress();
-  
+
   for (var i in locations) {
     var l = locations[i];
     $('#locationsContainer').append('<tr><td>' + l.address + '</td><td>' + l.latitude + '</td><td>' + l.longitude + '</td></tr>');
