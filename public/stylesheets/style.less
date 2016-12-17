@@ -1,16 +1,15 @@
-//- Size
+// Size
 @panelWidth: 480px;
 @lineHeight: 20px;
 
-//- Colors
+// Colors
 @lightNeutral: #eee;
 @mediumNeutral: #ccc;
 @darkNeutral: #999;
 @blackNeutral: #333;
 
-//- Mixins
-.user-select (@value)
-{
+// Mixins
+.user-select (@value) {
   -khtml-user-select: @value;
   -moz-user-select: @value;
   -ms-user-select: @value;
@@ -19,14 +18,13 @@
   user-select: @value;
 }
 
-.box-sizing (@value: border-box)
-{
+.box-sizing (@value: border-box) {
   -moz-box-sizing: @value;
   -webkit-box-sizing: @value;
   box-sizing: @value;
 }
 
-//- Custom
+// Custom
 .left { float: left; }
 .right { float: right; }
 .clear { clear: both; }
@@ -34,69 +32,60 @@
 .success { color: green; }
 .error { color: red; }
 
-//- Basic
-html, body
-{
+// Basic
+html, body {
   height: 100%;
 }
 
-body
-{
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: @lineHeight;
 }
 
-body, input
-{
+body, input {
   margin: 0;
 }
 
-input
-{
+input {
   .box-sizing;
 }
 
-textarea
-{
+textarea {
   width: 100%;
   resize: vertical;
   padding: 0;
 }
 
-a
-{
+a {
   text-decoration: none;
 }
 
-img
-{
+img {
   border: 0;
 }
 
-table
-{
+table {
   color: @blackNeutral;
   width: 100%;
   border: 1px solid @darkNeutral;
   border-collapse: collapse;
-  & > thead
-  {
+
+  > thead {
     background: @mediumNeutral;
   }
-  & > tbody, & > tfoot
-  {
+
+  > tbody, > tfoot {
     background: white;
   }
-  & > tfoot
-  {
+
+  > tfoot {
     font-weight: bold;
   }
 }
 
-//- Main
-.panel
-{
+// Main
+.panel {
   .box-sizing;
   color: @lightNeutral;
   background: @blackNeutral;
@@ -109,8 +98,7 @@ table
   overflow: auto;
 }
 
-.logo, .footer
-{
+.logo, .footer {
   .box-sizing;
   position: fixed;
   width: @panelWidth - 2 * @lineHeight;
@@ -118,21 +106,20 @@ table
   background: @blackNeutral;
 }
 
-.logo
-{
+.logo {
   top: 0;
   .user-select(none);
-  .logo-image, .logo-text
-  {
+
+  .logo-image, .logo-text {
     vertical-align: middle;
   }
-  .logo-image
-  {
+
+  .logo-image {
     height: 25px;
     margin: 0 -5px;
   }
-  .logo-text
-  {
+
+  .logo-text {
     color: @lightNeutral;
     text-transform: uppercase;
     font-size: 1.7em;
@@ -142,27 +129,28 @@ table
   }
 }
 
-.footer
-{
+.locations {
+  margin-top: 6px;
+}
+
+.footer {
   bottom: 0;
   font-size: smaller;
-  p
-  {
+
+  p {
     color: @darkNeutral;
     margin: 5px 15px 0 0;
   }
-  a
-  {
+
+  a {
     color: @mediumNeutral;
-    &:hover
-    {
+    &:hover {
       color: @lightNeutral;
     }
   }
 }
 
-.map
-{
+.map {
   position: absolute;
   top: 0;
   bottom: 0;

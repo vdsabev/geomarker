@@ -17,15 +17,6 @@
         </a>
       </div>
 
-      <label title="Google Maps API might throw an OVER_QUERY_LIMIT error if you send requests too often">
-        Search interval:
-        <input id="intervalInput" type="number" value="750" min="0" step="10" /> ms
-      </label>
-
-      <input type="button" id="stopSearchButton" class="right" value="Cancel" onclick="stopSearch()" disabled="true" />
-      <input type="button" id="startSearchButton" class="right" value="Search" onclick="startSearch()" />
-      <div class="clear"></div>
-
       <textarea id="addressesInput" rows="7" placeholder="Enter each address on a new line">Sofia, Bulgaria
 Stara Zagora, Bulgaria
 Varna, Bulgaria
@@ -34,14 +25,23 @@ Plovdiv, Bulgaria
 Ruse, Bulgaria
 Vidin, Bulgaria</textarea>
 
-      <table border="1">
+      <label class="margin-bottom-sm" title="Google Maps API might throw an OVER_QUERY_LIMIT error if you send requests too often">
+        Search interval:
+        <input id="intervalInput" type="number" value="750" min="0" step="10" /> ms
+      </label>
+
+      <input type="button" id="stopSearchButton" class="right" value="Cancel" onclick="stopSearch()" disabled="true" />
+      <input type="button" id="startSearchButton" class="right" value="Search" onclick="startSearch()" />
+      <div class="clear"></div>
+
+      <table class="locations" border="1">
         <thead><tr><th>Address</th><th>Latitude</th><th>Longitude</th></tr></thead>
         <tbody id="locationsContainer"></tbody>
         <tfoot><tr><td id="searchProgressLabel" colspan="3">Search for some addresses first</td></tr></tfoot>
       </table>
 
       <div class="footer">
-        <p>&copy; 2013 Vladimir Sabev <a href="//github.com/vdsabev" target="_blank" title="Available on:
+        <p>&copy; 2017 Vladimir Sabev <a href="//github.com/vdsabev" target="_blank" title="Available on:
 GitHub
 Google
 Facebook
@@ -51,7 +51,7 @@ Twitter">@ vdsabev</a></p>
 
     <div id="map" class="map"></div>
 
-    <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyB7oBktogqo5yPgt5Kh3ryddOlPb0CZz6Q"></script>
     <script type="text/javascript" src="scripts/lib/jquery.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.ui.map.js"></script>
     <script type="text/javascript" src="scripts/lib/jquery.ui.map.services.js"></script>
